@@ -65,6 +65,16 @@ window.GAME_CONFIG = (() => {
         { id: 'baian', name: 'Baian · Cavalo Marinho', emoji: '🐴', image: 'baian', saga: 'poseidon', tier: 'marina' },
         { id: 'thetis', name: 'Thetis · Sereia', emoji: '🧜‍♀️', image: 'thetis', saga: 'poseidon', tier: 'marina' },
         { id: 'caca', name: 'Caça · Lyumnades', emoji: '🏹', image: 'caca', saga: 'poseidon', tier: 'marina' },
+        // Hades — os 3 Juízes, a dupla de deuses gêmeos e mais dois nomes
+        // marcantes da saga
+        { id: 'rhadamanthys', name: 'Rhadamanthys · Wyvern', emoji: '🐲', image: 'rhadamanthys', saga: 'hades', tier: 'espectro' },
+        { id: 'minos', name: 'Minos · Grifo', emoji: '🦅', image: 'minos', saga: 'hades', tier: 'espectro' },
+        { id: 'aiacos', name: 'Aiacos · Garuda', emoji: '🦉', image: 'aiacos', saga: 'hades', tier: 'espectro' },
+        { id: 'pandora', name: 'Pandora', emoji: '🖤', image: 'pandora', saga: 'hades', tier: 'espectro' },
+        { id: 'thanatos', name: 'Thanatos', emoji: '💀', image: 'thanatos', saga: 'hades', tier: 'deus' },
+        { id: 'hypnos', name: 'Hypnos', emoji: '🌙', image: 'hypnos', saga: 'hades', tier: 'deus' },
+        { id: 'valentine', name: 'Valentine · Harpia', emoji: '🦇', image: 'valentine', saga: 'hades', tier: 'espectro' },
+        { id: 'hades', name: 'Hades', emoji: '👑', image: 'hades', saga: 'hades', tier: 'deus' },
     ];
 
     // Sagas do deck "Cavaleiros" — cada uma filtra `knights` pelo campo
@@ -73,6 +83,7 @@ window.GAME_CONFIG = (() => {
         santuario: { id: 'santuario', label: 'Santuário' },
         asgard: { id: 'asgard', label: 'Ásgard' },
         poseidon: { id: 'poseidon', label: 'Poseidon' },
+        hades: { id: 'hades', label: 'Hades' },
     };
 
     const difficulties = {
