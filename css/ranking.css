@@ -1,0 +1,137 @@
+body {
+  background-color: var(--dark);
+  background-image: url('../images/fundo_tela_game.png');
+  background-size: cover;
+}
+
+.ranking-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.ranking-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.ranking-header img {
+  width: 90px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  margin-bottom: 15px;
+}
+
+.ranking-header h1 {
+  color: var(--gold);
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.ranking-subtitle {
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.95em;
+  opacity: 0.85;
+}
+
+.ranking-list {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--panel-bg);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ranking-item {
+  padding: 12px 15px;
+  font-family: var(--font-body);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.ranking-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ranking-position {
+  font-weight: bold;
+  color: var(--dark-secondary);
+  min-width: 30px;
+}
+
+.ranking-avatar {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #ddd;
+  border: 1px solid #999;
+}
+
+.ranking-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ranking-score {
+  font-weight: bold;
+  color: #b8860b;
+  white-space: nowrap;
+}
+
+.ranking-details {
+  margin-top: 6px;
+  padding-left: 36px;
+  color: #666;
+  font-size: 0.78em;
+}
+
+.ranking-item.medal-gold {
+  background-color: rgba(255, 239, 20, 0.35);
+}
+
+.ranking-item.medal-silver {
+  background-color: rgba(192, 192, 192, 0.35);
+}
+
+.ranking-item.medal-bronze {
+  background-color: rgba(205, 127, 50, 0.3);
+}
+
+.ranking-empty {
+  color: #fff;
+  font-family: var(--font-body);
+  margin-top: 20px;
+}
+
+.ranking-back {
+  display: inline-block;
+  margin-top: 30px;
+  color: var(--gold);
+  font-family: var(--font-body);
+  text-decoration: none;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: all 200ms ease;
+}
+
+.ranking-back:hover {
+  background-color: var(--gold);
+  color: var(--dark);
+}

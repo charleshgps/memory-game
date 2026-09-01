@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="icon" type="imagem/png" href="../images/fundo_tela_inicial.png" />
+    <link rel="icon" type="image/png" href="./images/fundo_tela_inicial.png" />
+    <script defer src="./js/config.js"></script>
     <script defer src="./js/login.js"></script>
     <title>Memory Game | Login</title>
 </head>
@@ -20,8 +21,53 @@
             <h1>Memory Game</h1>
         </div>
 
-        <input type="text" placeholder="Name" class="login_input">
-        <button type="submit" class="login_button">Play</button>
+        <input type="text" placeholder="Name" class="login_input" maxlength="20">
+
+        <fieldset class="login_fieldset">
+            <legend>Escolha seu emblema</legend>
+            <div class="avatar_grid" data-role="avatar-grid"></div>
+        </fieldset>
+
+        <fieldset class="login_fieldset">
+            <legend>Dificuldade</legend>
+            <div class="pill_group">
+                <label class="pill">
+                    <input type="radio" name="difficulty" value="bronze" checked>
+                    <span>Bronze</span>
+                </label>
+                <label class="pill">
+                    <input type="radio" name="difficulty" value="prata">
+                    <span>Prata</span>
+                </label>
+                <label class="pill">
+                    <input type="radio" name="difficulty" value="ouro">
+                    <span>Ouro</span>
+                </label>
+            </div>
+        </fieldset>
+
+        <fieldset class="login_fieldset">
+            <legend>Tema das cartas</legend>
+            <div class="pill_group">
+                <label class="pill">
+                    <input type="radio" name="deck" value="zodiaco" checked>
+                    <span>Zodíaco</span>
+                </label>
+                <label class="pill">
+                    <input type="radio" name="deck" value="cavaleiros">
+                    <span>Cavaleiros</span>
+                </label>
+            </div>
+        </fieldset>
+
+        <label class="checkbox_row">
+            <input type="checkbox" name="countdown">
+            <span>⏱ Modo contra o relógio</span>
+        </label>
+
+        <button type="submit" class="login_button" disabled>Play</button>
+
+        <a class="ranking_link" href="./pages/ranking.html">🏛 Ver Quadro de Honra</a>
 
     </form>
 </body>

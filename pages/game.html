@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/game.css">
-  <link rel="icon" type="imagem/png" href="../images/fundo_tela_inicial.png" />
+  <link rel="icon" type="image/png" href="../images/fundo_tela_inicial.png" />
+  <script defer src="../js/config.js"></script>
   <script defer src="../js/game.js"></script>
 
   <title>Memory Game | Game</title>
@@ -16,15 +17,52 @@
 
   <main>
     <header>
-      <span class="player"></span>
-      <audio data-role="audio-player" src="../audio/Pegasus Fantasy Instrumental.mp3" autoplay controls id="audio">Your
+      <span class="player-info">
+        <span class="avatar-badge" data-role="avatar-badge"></span>
+        <span class="player"></span>
+      </span>
+      <audio data-role="audio-player" src="../audio/Pegasus Fantasy Instrumental.mp3" controls id="audio">Your
         browser does not support
         the audio element.</audio>
-      <span>Time: <span class="timer">00</span></span>
     </header>
+
+    <div class="stats-bar">
+      <span class="stat"><span data-role="timer-label">Tempo</span>: <span class="timer">00</span>s</span>
+      <span class="stat">Movimentos: <span class="moves">0</span></span>
+      <span class="stat">Combo: <span class="streak">0</span></span>
+    </div>
+
+    <p class="houses-title" data-role="houses-title"></p>
+    <ol class="houses" aria-label="Progresso da partida"></ol>
+    <p class="houses-progress" data-role="houses-progress"></p>
 
     <div class="grid"></div>
   </main>
+
+  <div class="modal-overlay" data-role="victory-modal" hidden>
+    <div class="modal">
+      <h2>🏆 Santuário Atravessado!</h2>
+      <p class="modal-title" data-role="modal-title"></p>
+      <p class="modal-message" data-role="modal-message"></p>
+      <div class="modal-actions">
+        <button type="button" class="modal-button" data-role="play-again">Jogar novamente</button>
+        <button type="button" class="modal-button modal-button-secondary" data-role="share-button">Compartilhar
+          resultado</button>
+        <a href="./ranking.html" class="modal-link">Ver Quadro de Honra</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" data-role="gameover-modal" hidden>
+    <div class="modal modal-gameover">
+      <h2>💀 Seu Cosmo se apagou...</h2>
+      <p class="modal-message" data-role="gameover-message"></p>
+      <div class="modal-actions">
+        <button type="button" class="modal-button" data-role="retry-button">Tentar novamente</button>
+        <a href="../index.html" class="modal-link">Trocar configurações</a>
+      </div>
+    </div>
+  </div>
 
 </body>
 
