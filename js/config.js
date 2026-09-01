@@ -1,5 +1,28 @@
 // Configuração compartilhada entre login, jogo e ranking.
 // Carregado como script global simples (sem bundler/módulos no projeto).
+
+// A transição suave entre páginas (css/reset.css, `@view-transition`) às
+// vezes é pulada pelo navegador (timing da navegação via window.location,
+// bfcache, etc.) — quando isso acontece, a promise interna do navegador
+// rejeita sem ninguém escutando e aparece "Transition was skipped" no
+// console. Não afeta a navegação em si, só o efeito visual da transição;
+// aqui a gente escuta e engole esse rejeito pra não sujar o console.
+const swallowSkippedTransition = (viewTransition) => {
+    if (!viewTransition) return;
+    // ready/finished/updateCallbackDone rejeitam juntas quando a transição
+    // é pulada — sem o catch em cada uma, sobra promise sem handler.
+    viewTransition.ready.catch(() => { });
+    viewTransition.finished.catch(() => { });
+    viewTransition.updateCallbackDone?.catch?.(() => { });
+};
+
+if ('onpageswap' in window) {
+    window.addEventListener('pageswap', (event) => swallowSkippedTransition(event.viewTransition));
+}
+if ('onpagereveal' in window) {
+    window.addEventListener('pagereveal', (event) => swallowSkippedTransition(event.viewTransition));
+}
+
 window.GAME_CONFIG = (() => {
 
     // Ordem canônica das 12 Casas do Santuário (mesma ordem do zodíaco)
