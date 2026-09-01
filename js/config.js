@@ -56,6 +56,15 @@ window.GAME_CONFIG = (() => {
         { id: 'mime', name: 'Mime · Benetnasch', emoji: '🎻', image: 'mime', saga: 'asgard', tier: 'deus-guerreiro' },
         { id: 'syd', name: 'Syd · Mizar', emoji: '🌪️', image: 'syd', saga: 'asgard', tier: 'deus-guerreiro' },
         { id: 'bud', name: 'Bud · Alcor', emoji: '🌙', image: 'bud', saga: 'asgard', tier: 'deus-guerreiro' },
+        // Poseidon — as 8 Marinas (Generais Marinha)
+        { id: 'kanon', name: 'Kanon · Dragão Marinho', emoji: '🌊', image: 'kanon', saga: 'poseidon', tier: 'marina' },
+        { id: 'sorrento', name: 'Sorrento · Sereia', emoji: '🎶', image: 'sorrento', saga: 'poseidon', tier: 'marina' },
+        { id: 'isaak', name: 'Isaak · Kraken', emoji: '🐙', image: 'isaak', saga: 'poseidon', tier: 'marina' },
+        { id: 'io', name: 'Io · Cila', emoji: '🐍', image: 'io', saga: 'poseidon', tier: 'marina' },
+        { id: 'krishna', name: 'Krishna · Chrysaor', emoji: '🔱', image: 'krishna', saga: 'poseidon', tier: 'marina' },
+        { id: 'baian', name: 'Baian · Cavalo Marinho', emoji: '🐴', image: 'baian', saga: 'poseidon', tier: 'marina' },
+        { id: 'thetis', name: 'Thetis · Sereia', emoji: '🧜‍♀️', image: 'thetis', saga: 'poseidon', tier: 'marina' },
+        { id: 'caca', name: 'Caça · Lyumnades', emoji: '🏹', image: 'caca', saga: 'poseidon', tier: 'marina' },
     ];
 
     // Sagas do deck "Cavaleiros" — cada uma filtra `knights` pelo campo
@@ -63,6 +72,7 @@ window.GAME_CONFIG = (() => {
     const sagas = {
         santuario: { id: 'santuario', label: 'Santuário' },
         asgard: { id: 'asgard', label: 'Ásgard' },
+        poseidon: { id: 'poseidon', label: 'Poseidon' },
     };
 
     const difficulties = {
