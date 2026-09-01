@@ -222,6 +222,10 @@ header {
   padding: 20px;
 }
 
+.modal-overlay[hidden] {
+  display: none;
+}
+
 .modal {
   background-color: #fff;
   border: 3px solid var(--gold);
