@@ -1,15 +1,23 @@
+html, body {
+  overflow: hidden;
+}
+
 body {
-  background-color: var(--dark);
-  background-image: url('../images/fundo_tela_game.png');
+  background-color: var(--void);
+  background-image:
+    linear-gradient(180deg, rgba(3, 3, 8, 0.55) 0%, rgba(3, 3, 8, 0.25) 30%, rgba(3, 3, 8, 0.6) 100%),
+    url('../images/fundo_tela_game.png');
   background-size: cover;
+  background-position: center;
 }
 
 .ranking-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  padding: 40px 20px;
+  height: 100dvh;
+  padding: clamp(14px, 3dvh, 32px) 20px;
+  gap: clamp(6px, 1.4dvh, 14px);
 }
 
 .ranking-header {
@@ -17,41 +25,49 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 30px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .ranking-header img {
-  width: 90px;
+  width: clamp(46px, 9dvh, 76px);
   border-radius: 50%;
   border: 3px solid var(--gold);
-  margin-bottom: 15px;
+  box-shadow: 0 0 20px 2px rgba(255, 239, 20, 0.35);
 }
 
 .ranking-header h1 {
   color: var(--gold);
-  font-size: 1.2em;
-  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  font-size: clamp(0.95em, 2.4dvh, 1.25em);
 }
 
 .ranking-subtitle {
   color: #fff;
   font-family: var(--font-body);
-  font-size: 0.95em;
-  opacity: 0.85;
+  font-size: clamp(0.72em, 1.6dvh, 0.9em);
+  opacity: 0.8;
 }
 
 .ranking-list {
   width: 100%;
   max-width: 600px;
-  background-color: var(--panel-bg);
-  border-radius: 8px;
-  overflow: hidden;
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border-radius: 12px;
 }
 
 .ranking-item {
-  padding: 12px 15px;
+  padding: clamp(8px, 1.4dvh, 13px) 15px;
   font-family: var(--font-body);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ranking-item:last-child {
@@ -65,9 +81,10 @@ body {
 }
 
 .ranking-position {
-  font-weight: bold;
-  color: var(--dark-secondary);
-  min-width: 30px;
+  font-weight: 700;
+  color: var(--gold-soft);
+  min-width: 26px;
+  font-variant-numeric: tabular-nums;
 }
 
 .ranking-avatar {
@@ -77,40 +94,43 @@ body {
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  background-color: #ddd;
-  border: 1px solid #999;
+  background-color: #333;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .ranking-name {
   flex: 1;
+  color: #fff;
+  font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .ranking-score {
-  font-weight: bold;
-  color: #b8860b;
+  font-weight: 700;
+  color: var(--gold);
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .ranking-details {
   margin-top: 6px;
   padding-left: 36px;
-  color: #666;
-  font-size: 0.78em;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.76em;
 }
 
 .ranking-item.medal-gold {
-  background-color: rgba(255, 239, 20, 0.35);
+  background-color: rgba(255, 239, 20, 0.14);
 }
 
 .ranking-item.medal-silver {
-  background-color: rgba(192, 192, 192, 0.35);
+  background-color: rgba(192, 192, 192, 0.14);
 }
 
 .ranking-item.medal-bronze {
-  background-color: rgba(205, 127, 50, 0.3);
+  background-color: rgba(205, 127, 50, 0.14);
 }
 
 .ranking-empty {
@@ -121,17 +141,20 @@ body {
 
 .ranking-back {
   display: inline-block;
-  margin-top: 30px;
-  color: var(--gold);
+  flex-shrink: 0;
+  background: none;
+  color: var(--gold-soft);
   font-family: var(--font-body);
+  font-weight: 500;
   text-decoration: none;
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  padding: 10px 20px;
+  border: 1.5px solid var(--gold-soft);
+  border-radius: 10px;
+  padding: 9px 20px;
   transition: all 200ms ease;
 }
 
 .ranking-back:hover {
   background-color: var(--gold);
-  color: var(--dark);
+  border-color: var(--gold);
+  color: #201c00;
 }

@@ -21,9 +21,10 @@
         <span class="avatar-badge" data-role="avatar-badge"></span>
         <span class="player"></span>
       </span>
-      <audio data-role="audio-player" src="../audio/Pegasus Fantasy Instrumental.mp3" controls id="audio">Your
+      <audio data-role="audio-player" src="../audio/Pegasus Fantasy Instrumental.mp3" id="audio" loop>Your
         browser does not support
         the audio element.</audio>
+      <button type="button" class="audio-toggle" data-role="audio-toggle" aria-label="Silenciar música" aria-pressed="false">🔊</button>
     </header>
 
     <div class="stats-bar">
@@ -32,11 +33,15 @@
       <span class="stat">Combo: <span class="streak">0</span></span>
     </div>
 
-    <p class="houses-title" data-role="houses-title"></p>
-    <ol class="houses" aria-label="Progresso da partida"></ol>
-    <p class="houses-progress" data-role="houses-progress"></p>
+    <div class="houses-block">
+      <p class="houses-title" data-role="houses-title"></p>
+      <ol class="houses" aria-label="Progresso da partida"></ol>
+      <p class="houses-progress" data-role="houses-progress"></p>
+    </div>
 
-    <div class="grid"></div>
+    <div class="grid-wrap">
+      <div class="grid"></div>
+    </div>
   </main>
 
   <div class="modal-overlay" data-role="victory-modal" hidden>
