@@ -123,6 +123,7 @@ const readSettings = () => {
             avatar: localStorage.getItem(config.STORAGE_KEYS.avatar) || config.houses[0].id,
             difficulty: localStorage.getItem(config.STORAGE_KEYS.difficulty) || 'bronze',
             deck: localStorage.getItem(config.STORAGE_KEYS.deck) || 'zodiaco',
+            saga: localStorage.getItem(config.STORAGE_KEYS.saga) || 'santuario',
             countdown: localStorage.getItem(config.STORAGE_KEYS.countdown) === 'true',
         };
     } catch (error) {
@@ -529,7 +530,12 @@ window.onload = () => {
 
     difficultyConfig = config.difficulties[settings.difficulty] || config.difficulties.bronze;
     const deckConfig = config.decks[settings.deck] || config.decks.zodiaco;
-    activeItems = deckConfig.items.slice(0, difficultyConfig.pairs);
+    // No deck Cavaleiros, cada saga filtra seu próprio pool de personagens
+    // (o Zodíaco não tem saga — usa sempre as 12 Casas)
+    const pool = settings.deck === 'cavaleiros'
+        ? deckConfig.items.filter((item) => item.saga === settings.saga)
+        : deckConfig.items;
+    activeItems = pool.slice(0, difficultyConfig.pairs);
 
     spanPlayer.textContent = settings.player;
 

@@ -47,7 +47,23 @@ window.GAME_CONFIG = (() => {
         { id: 'camus', name: 'Camus · Aquário', emoji: '❄️', saga: 'santuario', tier: 'ouro' },
         { id: 'saga', name: 'Saga · Gêmeos', emoji: '🌓', saga: 'santuario', tier: 'ouro' },
         { id: 'shaka', name: 'Shaka · Virgem', emoji: '🕉️', saga: 'santuario', tier: 'ouro' },
+        // Ásgard — os 8 Guerreiros Deuses (saga anime-only "Ring de Hilda")
+        { id: 'siegfried', name: 'Siegfried · Dubhe', emoji: '🐺', image: 'siegfried', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'hagen', name: 'Hägen · Merak', emoji: '🐎', image: 'hagen', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'thor', name: 'Thor · Phecda', emoji: '⚡', image: 'thor', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'alberich', name: 'Alberich · Megrez', emoji: '🗡️', image: 'alberich', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'fenrir', name: 'Fenrir · Alioth', emoji: '🐋', image: 'fenrir', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'mime', name: 'Mime · Benetnasch', emoji: '🎻', image: 'mime', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'syd', name: 'Syd · Mizar', emoji: '🌪️', image: 'syd', saga: 'asgard', tier: 'deus-guerreiro' },
+        { id: 'bud', name: 'Bud · Alcor', emoji: '🌙', image: 'bud', saga: 'asgard', tier: 'deus-guerreiro' },
     ];
+
+    // Sagas do deck "Cavaleiros" — cada uma filtra `knights` pelo campo
+    // `saga`. Conforme novas sagas ganham arte, entram aqui.
+    const sagas = {
+        santuario: { id: 'santuario', label: 'Santuário' },
+        asgard: { id: 'asgard', label: 'Ásgard' },
+    };
 
     const difficulties = {
         bronze: { id: 'bronze', label: 'Bronze', pairs: 6, timeLimit: 60 },
@@ -65,9 +81,10 @@ window.GAME_CONFIG = (() => {
         avatar: 'player-avatar',
         difficulty: 'game-difficulty',
         deck: 'game-deck',
+        saga: 'game-saga',
         countdown: 'game-countdown',
         ranking: 'sanctuary-ranking',
     };
 
-    return { houses, knights, difficulties, decks, STORAGE_KEYS };
+    return { houses, knights, sagas, difficulties, decks, STORAGE_KEYS };
 })();
