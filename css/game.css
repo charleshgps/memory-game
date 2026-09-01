@@ -208,6 +208,12 @@ header {
   pointer-events: none;
 }
 
+.grid.loading {
+  opacity: 0.5;
+  filter: grayscale(0.4);
+  transition: opacity 300ms ease, filter 300ms ease;
+}
+
 .card {
   position: relative;
   transition: transform 400ms ease, filter 400ms ease;

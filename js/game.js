@@ -210,13 +210,16 @@ const createProgressItems = () => {
         const el = createElement('li', 'house');
         el.setAttribute('data-character', item.id);
 
-        if (settings.deck === 'cavaleiros') {
+        if (settings.deck === 'zodiaco') {
+            el.style.backgroundImage = `url('../images/${item.id}.png')`;
+            el.title = `Casa ${index + 1}: ${item.name}`;
+        } else if (item.image) {
+            el.style.backgroundImage = `url('../images/knights/${item.image}.png')`;
+            el.title = item.name;
+        } else {
             el.classList.add('house-emoji');
             el.textContent = item.emoji;
             el.title = item.name;
-        } else {
-            el.style.backgroundImage = `url('../images/${item.id}.png')`;
-            el.title = `Casa ${index + 1}: ${item.name}`;
         }
 
         progressContainer.appendChild(el);
@@ -411,7 +414,11 @@ const revealCard = ({ target }) => {
 }
 
 const renderCardFace = (front, item) => {
-    if (settings.deck === 'cavaleiros') {
+    if (settings.deck === 'zodiaco') {
+        front.style.backgroundImage = `url('../images/${item.id}.png')`;
+    } else if (item.image) {
+        front.style.backgroundImage = `url('../images/knights/${item.image}.png')`;
+    } else {
         front.classList.add('knight-face');
 
         const emojiSpan = createElement('span', 'knight-emoji');
@@ -422,9 +429,26 @@ const renderCardFace = (front, item) => {
 
         front.appendChild(emojiSpan);
         front.appendChild(nameSpan);
-    } else {
-        front.style.backgroundImage = `url('../images/${item.id}.png')`;
     }
+}
+
+// --- Pré-carregamento: evita "pop-in" da imagem no primeiro flip ---
+const itemImageUrl = (item, deck) => {
+    if (deck === 'zodiaco') return `../images/${item.id}.png`;
+    if (item.image) return `../images/knights/${item.image}.png`;
+    return null;
+}
+
+const preloadImage = (src) => new Promise((resolve) => {
+    const img = new Image();
+    img.onload = resolve;
+    img.onerror = resolve;
+    img.src = src;
+});
+
+const preloadActiveItems = (items, deck) => {
+    const urls = items.map((item) => itemImageUrl(item, deck)).filter(Boolean);
+    return Promise.all(urls.map(preloadImage));
 }
 
 const createCard = (item) => {
@@ -531,5 +555,14 @@ window.onload = () => {
 
     createProgressItems();
     loadGame();
-    startTimer();
+
+    // trava o grid até as artes das cartas carregarem, pra evitar o
+    // "pop-in" (carta virada mostrando um quadrado em branco por um instante)
+    setLocked(true);
+    grid.classList.add('loading');
+    preloadActiveItems(activeItems, settings.deck).then(() => {
+        grid.classList.remove('loading');
+        setLocked(false);
+        startTimer();
+    });
 }
