@@ -18,21 +18,22 @@ window.GAME_CONFIG = (() => {
         { id: 'peixes', name: 'Peixes' },
     ];
 
-    // Deck alternativo: Cavaleiros (Bronze, Ouro e Athena) — renderizado em
-    // texto + emoji, sem depender de artes de personagens do anime
+    // Deck alternativo: Cavaleiros. Personagens com arte real da Cloth usam
+    // `image` (arquivo em images/knights/); os demais caem no fallback
+    // emoji + nome até ganharem arte própria (saga a saga).
     const knights = [
-        { id: 'seiya', name: 'Seiya · Pégaso', emoji: '🐎' },
-        { id: 'shiryu', name: 'Shiryu · Dragão', emoji: '🐉' },
-        { id: 'hyoga', name: 'Hyoga · Cisne', emoji: '🦢' },
-        { id: 'shun', name: 'Shun · Andrômeda', emoji: '⭐' },
-        { id: 'ikki', name: 'Ikki · Fênix', emoji: '🔥' },
-        { id: 'saori', name: 'Saori · Athena', emoji: '🕊️' },
-        { id: 'mu', name: 'Mu · Áries', emoji: '🐏' },
-        { id: 'aioria', name: 'Aioria · Leão', emoji: '🦁' },
-        { id: 'milo', name: 'Milo · Escorpião', emoji: '🦂' },
-        { id: 'camus', name: 'Camus · Aquário', emoji: '❄️' },
-        { id: 'saga', name: 'Saga · Gêmeos', emoji: '🌓' },
-        { id: 'shaka', name: 'Shaka · Virgem', emoji: '🕉️' },
+        { id: 'seiya', name: 'Seiya · Pégaso', emoji: '🐎', image: 'seiya', saga: 'santuario' },
+        { id: 'shiryu', name: 'Shiryu · Dragão', emoji: '🐉', image: 'shiryu', saga: 'santuario' },
+        { id: 'hyoga', name: 'Hyoga · Cisne', emoji: '🦢', image: 'hyoga', saga: 'santuario' },
+        { id: 'shun', name: 'Shun · Andrômeda', emoji: '⭐', image: 'shun', saga: 'santuario' },
+        { id: 'ikki', name: 'Ikki · Fênix', emoji: '🔥', image: 'ikki', saga: 'santuario' },
+        { id: 'saori', name: 'Saori · Athena', emoji: '🕊️', saga: 'santuario' },
+        { id: 'mu', name: 'Mu · Áries', emoji: '🐏', saga: 'santuario' },
+        { id: 'aioria', name: 'Aioria · Leão', emoji: '🦁', saga: 'santuario' },
+        { id: 'milo', name: 'Milo · Escorpião', emoji: '🦂', saga: 'santuario' },
+        { id: 'camus', name: 'Camus · Aquário', emoji: '❄️', saga: 'santuario' },
+        { id: 'saga', name: 'Saga · Gêmeos', emoji: '🌓', saga: 'santuario' },
+        { id: 'shaka', name: 'Shaka · Virgem', emoji: '🕉️', saga: 'santuario' },
     ];
 
     const difficulties = {
