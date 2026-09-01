@@ -11,6 +11,7 @@ const progressContainer = document.querySelector('.houses');
 const progressTitle = document.querySelector('[data-role="houses-title"]');
 const progressLabel = document.querySelector('[data-role="houses-progress"]');
 const audioPlayer = document.querySelector('[data-role="audio-player"]');
+const audioToggle = document.querySelector('[data-role="audio-toggle"]');
 
 const victoryModal = document.querySelector('[data-role="victory-modal"]');
 const victoryTitle = document.querySelector('[data-role="modal-title"]');
@@ -23,7 +24,7 @@ const gameOverMessage = document.querySelector('[data-role="gameover-message"]')
 const retryButton = document.querySelector('[data-role="retry-button"]');
 
 const MAX_RANKING_ENTRIES = 10;
-const INITIAL_VOLUME = 0.1; // jogo sempre começa com volume em 10%
+const INITIAL_VOLUME = 0.05; // jogo sempre começa com volume em 5%
 const MAX_STREAK_MULTIPLIER_STEPS = 5;
 const TIME_BONUS_CEILING = 300; // teto (em segundos) usado no bônus de tempo da pontuação
 
@@ -446,8 +447,10 @@ const createCard = (item) => {
 const loadGame = () => {
     const duplicatedItems = shuffle([...activeItems, ...activeItems]);
     const columns = duplicatedItems.length <= 12 ? 4 : 6;
+    const rows = Math.ceil(duplicatedItems.length / columns);
 
     grid.style.setProperty('--columns', columns);
+    grid.style.setProperty('--rows', rows);
 
     duplicatedItems.forEach((item) => {
         const card = createCard(item);
@@ -516,6 +519,14 @@ window.onload = () => {
         // play() via JS (em vez do atributo autoplay) permite capturar o bloqueio
         // que navegadores aplicam a áudio com som após a navegação de página
         audioPlayer.play().catch(() => { });
+    }
+
+    if (audioToggle && audioPlayer) {
+        audioToggle.addEventListener('click', () => {
+            audioPlayer.muted = !audioPlayer.muted;
+            audioToggle.textContent = audioPlayer.muted ? '🔇' : '🔊';
+            audioToggle.setAttribute('aria-pressed', String(audioPlayer.muted));
+        });
     }
 
     createProgressItems();

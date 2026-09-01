@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
     --gold: #FFEF14;
+    --gold-soft: #F7D774;
     --dark: #222;
     --dark-secondary: #333;
-    --panel-bg: rgba(255, 255, 255, 0.85);
-    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --void: #05050a;
+    --void-deep: #0a0a14;
+    --panel-bg: rgba(18, 18, 26, 0.72);
+    --panel-border: rgba(255, 239, 20, 0.22);
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Cinzel', 'Press Start 2P', cursive;
+    --font-pixel: 'Press Start 2P', cursive;
 }
 
 * {
@@ -14,5 +20,24 @@
     box-sizing: border-box;
     list-style: none;
     border: none;
-    font-family: 'Press Start 2P', cursive;
+    font-family: var(--font-body);
+}
+
+html,
+body {
+    height: 100%;
+    background: var(--void);
+}
+
+::selection {
+    background: var(--gold);
+    color: #1a1a10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
 }

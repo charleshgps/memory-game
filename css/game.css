@@ -1,32 +1,43 @@
-main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-image: url('../images/fundo_tela_game.png');
-  background-size: cover;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 20px 50px;
+html, body {
+  overflow: hidden;
 }
 
 body {
   background-image: url('../images/fundo_tela_game.png');
   background-size: cover;
+  background-position: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+  background-image:
+    linear-gradient(180deg, rgba(3, 3, 8, 0.55) 0%, rgba(3, 3, 8, 0.25) 30%, rgba(3, 3, 8, 0.6) 100%),
+    url('../images/fundo_tela_game.png');
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  padding: clamp(8px, 1.6dvh, 18px) clamp(10px, 2vw, 20px);
+  gap: clamp(6px, 1.1dvh, 12px);
 }
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
-  background-color: var(--panel-bg);
-  font-size: 1.2em;
-  width: 50%;
-  max-width: 700px;
-  padding: 10px;
-  margin: 0 0 10px;
-  border-radius: 5px;
+  gap: clamp(10px, 2vw, 18px);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  font-size: 1.1em;
+  width: 100%;
+  max-width: 760px;
+  padding: clamp(6px, 1.1dvh, 10px) clamp(10px, 1.6dvw, 14px);
+  border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .player-info {
@@ -37,67 +48,112 @@ header {
 }
 
 .avatar-badge {
-  width: 32px;
-  height: 32px;
+  width: clamp(26px, 4dvh, 34px);
+  height: clamp(26px, 4dvh, 34px);
   flex-shrink: 0;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
   border: 2px solid var(--gold);
+  box-shadow: 0 0 10px rgba(255, 239, 20, 0.35);
 }
 
 .player {
-  color: var(--dark-secondary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.03em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.audio-toggle {
+  flex-shrink: 0;
+  width: clamp(28px, 4.2dvh, 36px);
+  height: clamp(28px, 4.2dvh, 36px);
+  border-radius: 50%;
+  border: 1.5px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 0.95em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+.audio-toggle:hover {
+  transform: scale(1.08);
+  border-color: var(--gold);
+}
+
+.audio-toggle[aria-pressed="true"] {
+  opacity: 0.55;
 }
 
 .stats-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  width: 50%;
-  max-width: 700px;
-  margin: 0 0 15px;
-  padding: 8px;
-  background-color: var(--panel-bg);
-  border-radius: 5px;
+  gap: clamp(10px, 2vw, 22px);
+  width: 100%;
+  max-width: 760px;
+  padding: clamp(5px, 1dvh, 8px);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border-radius: 10px;
   font-family: var(--font-body);
-  font-size: 1em;
-  color: var(--dark-secondary);
+  font-weight: 500;
+  font-size: 0.92em;
+  color: #fff;
+  flex-shrink: 0;
 }
 
 .stat {
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.houses-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 760px;
+  flex-shrink: 0;
+  gap: 4px;
 }
 
 .houses-title {
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 0.9em;
-  font-weight: bold;
-  margin: 0 0 8px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  color: var(--gold-soft);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: clamp(0.62em, 1.5dvh, 0.8em);
 }
 
 .houses {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 6px;
-  width: 50%;
-  max-width: 700px;
-  margin: 0 0 6px;
-  padding: 10px;
-  background-color: var(--panel-bg);
-  border-radius: 5px;
+  gap: 5px;
+  width: 100%;
+  padding: clamp(6px, 1dvh, 10px);
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border-radius: 10px;
 }
 
 .house {
-  width: 32px;
-  height: 32px;
+  width: clamp(20px, 3.4dvh, 30px);
+  height: clamp(20px, 3.4dvh, 30px);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -125,17 +181,26 @@ header {
 .houses-progress {
   color: #fff;
   font-family: var(--font-body);
-  font-size: 0.85em;
-  margin: 0 0 15px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-size: clamp(0.62em, 1.4dvh, 0.78em);
+  opacity: 0.85;
+}
+
+.grid-wrap {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  overflow-y: auto;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--columns, 6), 1fr);
-  gap: 5px;
+  grid-template-rows: repeat(var(--rows, 4), 1fr);
+  gap: clamp(4px, 0.8dvh, 8px);
   width: 100%;
-  max-width: 640px;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -144,18 +209,16 @@ header {
 }
 
 .card {
-  aspect-ratio: 3/4;
-  width: 100%;
-  border-radius: 5px;
   position: relative;
-  transition: all 400ms ease;
+  transition: transform 400ms ease, filter 400ms ease;
   transform-style: preserve-3d;
   background-color: #ccc;
   cursor: pointer;
+  min-height: 0;
 }
 
 .card:not(.reveal-card):hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   filter: brightness(1.08);
 }
 
@@ -165,9 +228,10 @@ header {
   position: absolute;
   background-size: cover;
   background-position: center;
-  border: 5px solid #545454;
-  border-radius: 5px;
+  border: 4px solid #545454;
+  border-radius: 6px;
   transition: all 400ms ease;
+  overflow: hidden;
 }
 
 .front {
@@ -180,25 +244,43 @@ header {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background-color: #1a1a1a;
-  padding: 6px;
+  background-color: #14141c;
+  padding: 4px;
   text-align: center;
 }
 
 .knight-emoji {
-  font-size: 1.8em;
+  font-size: clamp(1em, 3dvh, 1.8em);
 }
 
 .knight-name {
   color: var(--gold);
-  font-family: var(--font-body);
-  font-size: 0.6em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.42em, 1.1dvh, 0.6em);
   line-height: 1.2;
 }
 
 .back {
   background-image: url('../images/back.png');
   backface-visibility: hidden;
+  position: relative;
+}
+
+.back::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 239, 20, 0.28) 48%, transparent 60%);
+  background-size: 260% 260%;
+  background-position: 0% 0%;
+  animation: card-shine 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes card-shine {
+  0%, 15% { background-position: 120% 0%; }
+  55%, 100% { background-position: -20% 100%; }
 }
 
 .reveal-card {
@@ -217,7 +299,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(3px);
   z-index: 10;
   padding: 20px;
 }
@@ -227,35 +310,38 @@ header {
 }
 
 .modal {
-  background-color: #fff;
+  background-color: #fdfcf6;
   border: 3px solid var(--gold);
-  border-radius: 10px;
-  box-shadow: 0 0 30px 4px var(--gold);
+  border-radius: 14px;
+  box-shadow: 0 0 40px 6px var(--gold);
   max-width: 420px;
   width: 100%;
-  padding: 30px 25px;
+  padding: clamp(22px, 4dvh, 32px) clamp(20px, 4vw, 28px);
   text-align: center;
   animation: cosmo-pulse 1.8s ease-in-out infinite;
 }
 
 .modal h2 {
-  font-size: 1.1em;
+  font-family: var(--font-display);
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   color: var(--dark);
   margin-bottom: 15px;
 }
 
 .modal-title {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 1.1em;
-  font-weight: bold;
-  color: #b8860b;
+  font-weight: 700;
+  color: #a8790a;
   margin-bottom: 10px;
 }
 
 .modal-message {
   font-family: var(--font-body);
-  font-size: 1em;
-  line-height: 1.5;
+  font-size: 0.95em;
+  line-height: 1.55;
   color: var(--dark-secondary);
   margin-bottom: 25px;
 }
@@ -268,30 +354,37 @@ header {
 
 .modal-button {
   background-color: var(--gold);
-  border: 3px solid var(--dark);
-  border-radius: 8px;
-  color: var(--dark);
+  border: none;
+  border-radius: 10px;
+  color: #201c00;
   cursor: pointer;
-  font-size: 0.85em;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88em;
   padding: 12px;
-  transition: transform 150ms ease;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 4px 16px rgba(255, 239, 20, 0.3);
 }
 
 .modal-button:hover {
-  transform: scale(1.03);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 22px rgba(255, 239, 20, 0.42);
 }
 
 .modal-button-secondary {
   background-color: #fff;
-  border-color: #999;
+  border: 1.5px solid #ccc;
   color: var(--dark-secondary);
+  box-shadow: none;
 }
 
 .modal-link {
+  background: none;
   font-family: var(--font-body);
-  font-size: 0.95em;
+  font-size: 0.88em;
   color: var(--dark-secondary);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .modal-gameover {
@@ -321,16 +414,12 @@ header {
 @media screen and (max-width:920px) {
   header,
   .stats-bar,
-  .houses {
-    width: 90%;
+  .houses-block {
+    width: 92%;
   }
 }
 
 @media screen and (max-width:600px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   header {
     flex-wrap: wrap;
     justify-content: center;
@@ -341,10 +430,5 @@ header {
   .stats-bar {
     gap: 10px;
     justify-content: space-around;
-  }
-
-  .house {
-    width: 24px;
-    height: 24px;
   }
 }
