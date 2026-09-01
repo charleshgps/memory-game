@@ -22,18 +22,31 @@ window.GAME_CONFIG = (() => {
     // `image` (arquivo em images/knights/); os demais caem no fallback
     // emoji + nome até ganharem arte própria (saga a saga).
     const knights = [
-        { id: 'seiya', name: 'Seiya · Pégaso', emoji: '🐎', image: 'seiya', saga: 'santuario' },
-        { id: 'shiryu', name: 'Shiryu · Dragão', emoji: '🐉', image: 'shiryu', saga: 'santuario' },
-        { id: 'hyoga', name: 'Hyoga · Cisne', emoji: '🦢', image: 'hyoga', saga: 'santuario' },
-        { id: 'shun', name: 'Shun · Andrômeda', emoji: '⭐', image: 'shun', saga: 'santuario' },
-        { id: 'ikki', name: 'Ikki · Fênix', emoji: '🔥', image: 'ikki', saga: 'santuario' },
-        { id: 'saori', name: 'Saori · Athena', emoji: '🕊️', saga: 'santuario' },
-        { id: 'mu', name: 'Mu · Áries', emoji: '🐏', saga: 'santuario' },
-        { id: 'aioria', name: 'Aioria · Leão', emoji: '🦁', saga: 'santuario' },
-        { id: 'milo', name: 'Milo · Escorpião', emoji: '🦂', saga: 'santuario' },
-        { id: 'camus', name: 'Camus · Aquário', emoji: '❄️', saga: 'santuario' },
-        { id: 'saga', name: 'Saga · Gêmeos', emoji: '🌓', saga: 'santuario' },
-        { id: 'shaka', name: 'Shaka · Virgem', emoji: '🕉️', saga: 'santuario' },
+        // Bronze — os 5 principais
+        { id: 'seiya', name: 'Seiya · Pégaso', emoji: '🐎', image: 'seiya', saga: 'santuario', tier: 'bronze' },
+        { id: 'shiryu', name: 'Shiryu · Dragão', emoji: '🐉', image: 'shiryu', saga: 'santuario', tier: 'bronze' },
+        { id: 'hyoga', name: 'Hyoga · Cisne', emoji: '🦢', image: 'hyoga', saga: 'santuario', tier: 'bronze' },
+        { id: 'shun', name: 'Shun · Andrômeda', emoji: '⭐', image: 'shun', saga: 'santuario', tier: 'bronze' },
+        { id: 'ikki', name: 'Ikki · Fênix', emoji: '🔥', image: 'ikki', saga: 'santuario', tier: 'bronze' },
+        // Prata — Cavaleiros que enfrentam os Cavaleiros de Bronze na saga do Santuário
+        { id: 'marin', name: 'Marin · Águia', emoji: '🦅', image: 'marin', saga: 'santuario', tier: 'prata' },
+        { id: 'shaina', name: 'Shaina · Ofiúco', emoji: '🐍', image: 'shaina', saga: 'santuario', tier: 'prata' },
+        { id: 'misty', name: 'Misty · Lagarto', emoji: '🦎', image: 'misty', saga: 'santuario', tier: 'prata' },
+        { id: 'jamian', name: 'Jamian · Corvo', emoji: '🐦‍⬛', image: 'jamian', saga: 'santuario', tier: 'prata' },
+        { id: 'argol', name: 'Argol · Perseu', emoji: '🗿', image: 'argol', saga: 'santuario', tier: 'prata' },
+        { id: 'babel', name: 'Babel · Centauro', emoji: '🏹', image: 'babel', saga: 'santuario', tier: 'prata' },
+        { id: 'capella', name: 'Capella · Cão Maior', emoji: '🐕', image: 'capella', saga: 'santuario', tier: 'prata' },
+        { id: 'orfeu', name: 'Orfeu · Lira', emoji: '🎵', image: 'orfeu', saga: 'santuario', tier: 'prata' },
+        // Ouro — já representados no deck Zodíaco; aqui ficam como fallback
+        // emoji até virarem uma leva própria (ex.: renderizados como pessoa,
+        // não como a casa)
+        { id: 'saori', name: 'Saori · Athena', emoji: '🕊️', saga: 'santuario', tier: 'deusa' },
+        { id: 'mu', name: 'Mu · Áries', emoji: '🐏', saga: 'santuario', tier: 'ouro' },
+        { id: 'aioria', name: 'Aioria · Leão', emoji: '🦁', saga: 'santuario', tier: 'ouro' },
+        { id: 'milo', name: 'Milo · Escorpião', emoji: '🦂', saga: 'santuario', tier: 'ouro' },
+        { id: 'camus', name: 'Camus · Aquário', emoji: '❄️', saga: 'santuario', tier: 'ouro' },
+        { id: 'saga', name: 'Saga · Gêmeos', emoji: '🌓', saga: 'santuario', tier: 'ouro' },
+        { id: 'shaka', name: 'Shaka · Virgem', emoji: '🕉️', saga: 'santuario', tier: 'ouro' },
     ];
 
     const difficulties = {
